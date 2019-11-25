@@ -1,7 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Route } from "react-router-dom";
 
-function Auth() {
-  return <p>Auth</p>;
+import Login from "./Login";
+
+function Auth({ match }) {
+  return (
+    <Fragment>
+      <Route path={`${match.path}/login`} component={Login} />
+    </Fragment>
+  );
 }
 
 export default Auth;
