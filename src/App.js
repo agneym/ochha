@@ -1,8 +1,18 @@
 import React from "react";
-import { Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+
+import theme from "./utils/theme";
+import Content from "./Content";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Route path="/" component={Content} />
+      </Router>
+    </ThemeProvider>
+  );
 }
 
 export default App;
