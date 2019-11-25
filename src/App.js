@@ -1,16 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import theme from "./utils/theme";
 import Content from "./Content";
 import GlobalStyles from "./utils/global";
+import Auth from "./Auth";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Route path="/" component={Content} />
+        <Switch>
+          <Route path="/auth" component={Auth} />
+          <Route path="/" component={Content} />
+        </Switch>
       </Router>
       <GlobalStyles />
     </ThemeProvider>
