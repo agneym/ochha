@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 
 import theme from "./utils/theme";
 import Content from "./Content";
+import GlobalStyles from "./utils/global";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <Route path="/" component={Content} />
       </Router>
+      <GlobalStyles />
     </ThemeProvider>
   );
 }
