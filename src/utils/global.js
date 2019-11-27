@@ -2,11 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import "uikit/dist/css/uikit.min.css";
 
 const GlobalStyles = createGlobalStyle`
-  :root {
-    font-size: 10px;
-  }
   body {
-    font-size: 1.5rem;
     margin: 0;
     font-family: ${props => props.theme.fonts.main};
     line-height: 1.6;

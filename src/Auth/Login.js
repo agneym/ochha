@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Field from "../components/Field";
 
 const Container = styled.main`
   display: flex;
@@ -9,19 +10,41 @@ const Container = styled.main`
   flex-direction: column;
 `;
 
+const StyledForm = styled.form`
+  width: 80%;
+`;
+
+const Title = styled.h1`
+  font-size: 2rem;
+`;
+
 function Login() {
   return (
     <Container>
-      <h1 className="uk-heading-medium">LOGIN</h1>
-      <hr className="uk-divider-small" />
-      <form className="uk-form-stacked">
-        <div className="uk-margin">
-          <label className="uk-form-label">Email Address</label>
-          <div class="uk-form-controls">
-            <input className="uk-input" placeholder="johndoe@email.com" />
-          </div>
-        </div>
-      </form>
+      <Title className="uk-heading-small uk-heading-divider uk-margin-large-bottom">
+        LOGIN
+      </Title>
+      <StyledForm className="uk-form-stacked">
+        <Field
+          id="login-email-address"
+          name="login-email-address"
+          label="Email Address"
+          placeholder="johndoe@email.com"
+          autoComplete="email"
+          type="email"
+        />
+        <Field
+          id="login-password"
+          name="login-password"
+          placeholder="******"
+          label="Password"
+          autoComplete="current-password"
+          type="password"
+        />
+        <button className="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-top">
+          LOGIN
+        </button>
+      </StyledForm>
     </Container>
   );
 }
