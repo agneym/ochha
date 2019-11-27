@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import { ErrorMessage } from "formik";
 
-function CustomField({ id, label, error, field, ...rest }) {
+function CustomField({ id, form, label, error, field, ...rest }) {
   return (
     <div className="uk-margin">
       <label className="uk-form-label" htmlFor={id}>
@@ -12,7 +12,7 @@ function CustomField({ id, label, error, field, ...rest }) {
         <input
           className={classnames("uk-input", {
             "uk-form-danger": !!error,
-            "uk-form-success": !error,
+            "uk-form-success": form.touched[rest.name] && !error,
           })}
           id={id}
           aria-describedby={`error-${id}`}
@@ -20,11 +20,12 @@ function CustomField({ id, label, error, field, ...rest }) {
           {...rest}
         />
       </div>
-      {error && (
-        <span className="uk-text-meta" id={`error-${id}`}>
-          <ErrorMessage name={field.name} />
-        </span>
-      )}
+      <span
+        className={classnames("uk-text-meta", { "uk-hidden": !error })}
+        id={`error-${id}`}
+      >
+        <ErrorMessage name={field.name} />
+      </span>
     </div>
   );
 }
