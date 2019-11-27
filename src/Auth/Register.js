@@ -3,7 +3,7 @@ import { Formik, Field } from "formik";
 
 import CustomField from "../components/Field";
 import registerSchema from "./register-schema";
-import { Container, StyledForm, Title } from "./AuthStyles";
+import { Container, StyledForm, Title, StyledLink } from "./AuthStyles";
 
 function Register() {
   const handleSubmit = (values, actions) => {
@@ -63,6 +63,9 @@ function Register() {
           </StyledForm>
         )}
       </Formik>
+      <StyledLink to="/auth/login" className="uk-margin-large-top">
+        Login
+      </StyledLink>
     </Container>
   );
 }

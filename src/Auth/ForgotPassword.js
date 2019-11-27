@@ -3,7 +3,7 @@ import { Formik, Field } from "formik";
 import * as Yup from "yup";
 
 import CustomField from "../components/Field";
-import { Container, StyledForm, Title } from "./AuthStyles";
+import { Container, StyledForm, Title, StyledLink } from "./AuthStyles";
 
 const forgotSchema = Yup.object().shape({
   email: Yup.string()
@@ -50,6 +50,9 @@ function ForgotPassword() {
           </StyledForm>
         )}
       </Formik>
+      <StyledLink to="/auth/login" className="uk-margin-large-top">
+        Login
+      </StyledLink>
     </Container>
   );
 }

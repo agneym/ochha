@@ -1,5 +1,6 @@
 import { Form } from "formik";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Title = styled.h1`
   font-size: 2rem;
@@ -17,4 +18,8 @@ export const Container = styled.main`
 export const StyledForm = styled(Form)`
   width: 80%;
   max-width: 500px;
+`;
+
+export const StyledLink = styled(Link)`
+  color: ${props => props.theme.colors.warmBlack};
 `;
