@@ -21,7 +21,7 @@ function CustomField({ id, label, error, field, ...rest }) {
         />
       </div>
       {error && (
-        <span className="uk-text-meta" aria-describedby={`error-${id}`}>
+        <span className="uk-text-meta" id={`error-${id}`}>
           <ErrorMessage name={field.name} />
         </span>
       )}
