@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Field from "../components/Field";
+import { Formik, Field, Form } from "formik";
+
+import CustomField from "../components/Field";
 
 const Container = styled.main`
   display: flex;
@@ -10,7 +12,7 @@ const Container = styled.main`
   flex-direction: column;
 `;
 
-const StyledForm = styled.form`
+const StyledForm = styled(Form)`
   width: 80%;
 `;
 
@@ -19,32 +21,50 @@ const Title = styled.h1`
 `;
 
 function Login() {
+  const handleSubmit = (values, actions) => {
+    console.log(values);
+  };
   return (
     <Container>
       <Title className="uk-heading-small uk-heading-divider uk-margin-large-bottom">
         LOGIN
       </Title>
-      <StyledForm className="uk-form-stacked">
-        <Field
-          id="login-email-address"
-          name="login-email-address"
-          label="Email Address"
-          placeholder="johndoe@email.com"
-          autoComplete="email"
-          type="email"
-        />
-        <Field
-          id="login-password"
-          name="login-password"
-          placeholder="******"
-          label="Password"
-          autoComplete="current-password"
-          type="password"
-        />
-        <button className="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-top">
-          LOGIN
-        </button>
-      </StyledForm>
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        onSubmit={handleSubmit}
+      >
+        {() => (
+          <StyledForm className="uk-form-stacked">
+            <Field
+              id="email"
+              name="email"
+              label="Email Address"
+              placeholder="johndoe@email.com"
+              autoComplete="email"
+              type="email"
+              component={CustomField}
+            />
+            <Field
+              id="password"
+              name="password"
+              placeholder="******"
+              label="Password"
+              autoComplete="current-password"
+              type="password"
+              component={CustomField}
+            />
+            <button
+              className="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-top"
+              type="submit"
+            >
+              LOGIN
+            </button>
+          </StyledForm>
+        )}
+      </Formik>
     </Container>
   );
 }
