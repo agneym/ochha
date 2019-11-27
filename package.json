@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@reach/auto-id": "^0.6.1",
+    "classnames": "^2.2.6",
     "formik": "^2.0.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

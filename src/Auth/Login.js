@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Formik, Field, Form } from "formik";
 
 import CustomField from "../components/Field";
+import loginSchema from "./login-schema";
 
 const Container = styled.main`
   display: flex;
@@ -34,9 +35,10 @@ function Login() {
           email: "",
           password: "",
         }}
+        validationSchema={loginSchema}
         onSubmit={handleSubmit}
       >
-        {() => (
+        {({ errors, touched }) => (
           <StyledForm className="uk-form-stacked">
             <Field
               id="email"
@@ -46,6 +48,7 @@ function Login() {
               autoComplete="email"
               type="email"
               component={CustomField}
+              error={touched.email && errors.email}
             />
             <Field
               id="password"
@@ -55,6 +58,7 @@ function Login() {
               autoComplete="current-password"
               type="password"
               component={CustomField}
+              error={touched.password && errors.password}
             />
             <button
               className="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-top"
