@@ -4,6 +4,7 @@ const theme = {
     main: `'Lato', Sans-Serif;`,
   },
   colors: {
+    lightBlack: "#48435C",
     warmBlack: "#073B4C",
   },
 };

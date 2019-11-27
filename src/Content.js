@@ -1,7 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Route } from "react-router";
 
-function Content() {
-  return <p>Content</p>;
+import Contacts from "./Contacts";
+
+function Content({ match }) {
+  return (
+    <Fragment>
+      <Route path={`${match.url}/`} component={Contacts} />
+    </Fragment>
+  );
 }
 
 export default Content;
